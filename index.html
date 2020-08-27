@@ -99,7 +99,7 @@
 					<option value="200">200c</option>
 					<option value="500">500c</option>
 				</select>
-				<input type="button" value="SPIN REELS" id="spin" onclick="girar">
+				<input type="button" value="SPIN REELS" id="spin" onclick="girar()">
 		</form>
 	</section><br>
 	<section class="paytable">
@@ -144,9 +144,9 @@
 		var n3 = Math.floor(Math.random() * 10);
 		arrayFiguras[n3]++;
 	
-		document.getElementById("reel1").src = "img/${n1}.png";
-		document.getElementById("reel2").src = "img/${n2}.png";
-		document.getElementById("reel3").src = "img/${n3}.png";
+		document.getElementById("reel1").src = `img/${n1}.png`;
+		document.getElementById("reel2").src = `img/${n2}.png`;
+		document.getElementById("reel3").src = `img/${n3}.png`;
 	
 		for (a=0; a<arrayFiguras.length; a++) {
 			if(arrayFiguras[a]==3) {
@@ -155,7 +155,7 @@
 				break;
 			} else if (arrayFiguras[a]==2 && arrayFiguras[9]==1){
 				premio = arrayPremios[a] * bet;
-				document.getElementById("win").value = win + premio ; {
+				document.getElementById("win").value = win + premio ;
 				break;
 			} else if (arrayFiguras[a]==1 && arrayFiguras[9]==2){
 				premio = arrayPremios[a] * bet;
