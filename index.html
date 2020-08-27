@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<head>
-	<title>Slot Machine</title>
-	<meta charset="UTF-8">
-	<style type="text/css">
+	</style>
+	<html>
+		<head>
+		<title></title>
+		<meta charset="UTC-8">
+		<style type="text/css">
 	* {
 		font-family: arial
 	}
 	.wraper {
-		width: 340px;border:5px ridge silver; border-radius:20px;padding:40px; margin:auto;background-color: silver;
+		width: 340px;border:5px ridge yellow; 
+		border-radius:20px;
+		padding:40px;
+		margin:auto;
+		background-color: black;
 	}
 	.display, .scores, .controls {
 		width: 280px;
@@ -19,17 +24,17 @@
 		width: 75px;
 		height: 90px;
 		border-radius: 5px;
-		border:2px ridge gold;
+		border:2px ridge rgb(17, 16, 16);
 		display: inline-block;
-		background-color: white;
+		background-color: black;
 		padding:5px;		
 	}
 	.scores {
-		background-color:blue;
+		background-color: red;
 		padding:10px;
 	}
 	.controls {
-		background-color: blue;
+		background-color: red;
 		padding:10px;
 		box-sizing:border-box;
 	}
@@ -44,10 +49,10 @@
 	.paytable {
 		width: 330px;
 		border-radius: 5px;
-		border:2px ridge gold;
+		border:2px ridge black;
 		margin:auto;
 		padding: 5px;
-		background-color: white;
+		background-color: grey;
 		text-align: center;
 	}
 	.paytable img {
@@ -66,21 +71,20 @@
 	div#wild {
 		width: 25px;
 	}
-</style>
-</head>
-<body>
-
-	<div class="wraper">
-		<section class="scores">
-		<label>Amount</label>
-		<input type="text" id="amount">
-		<label>Wins</label>
-		<input type="text" id="win" disabled>
+		</style>
+	</head>
+	<body>
+		<div class="wraper">
+			<section class="scores">
+			<label>Amount</label>
+			<input type="text" id="amount">
+			<label>Wins</label>
+			<input type="text" id="win" disabled>
 	</section><br><br>
 	<section class="display">
-		<div class="reels"><img id="reel1" src="img/fb.png"></div>
-		<div class="reels"><img id="reel2" src="img/snap.png"></div>
-		<div class="reels"><img id="reel3" src="img/yt.png"></div>
+		<div class="reels"><img id="reel1" src="img/5.png"></div>
+		<div class="reels"><img id="reel2" src="img/5.png"></div>
+		<div class="reels"><img id="reel3" src="img/5.png"></div>
 	</section><br><br>
 	<section class="controls">
 		<form>
@@ -95,76 +99,72 @@
 					<option value="200">200c</option>
 					<option value="500">500c</option>
 				</select>
-				<input type="buttom" value="SPIN REELS" id="spin" onclick="girar">
+				<input type="button" value="SPIN REELS" id="spin" onclick="girar">
 		</form>
 	</section><br>
 	<section class="paytable">
 		<div class="columnas">
-		<div style="clear:left">
-			<img src="img/snap.png"><img src="img/snap.png"><img src="img/snap.png"><span>&nbsp1000</span>
 		</div>
 		<div style="clear:left">
-			<img src="img/yt.png"><img src="img/yt.png"><img src="img/yt.png"><span>&nbsp500</span>
+			<img src="img/8.png"><img src="img/8.png"><img src="img/8.png"><span>&nbsp20</span>
 		</div>
 		<div style="clear:left">
-			<img src="img/ig.png"><img src="img/ig.png"><img src="img/ig.png"><span>&nbsp300</span>
+			<img src="img/7.png"><img src="img/7.png"><img src="img/7.png"><span>&nbsp100</span>
 		</div>
 		<div style="clear:left">
-			<img src="img/fb.png"><img src="img/fb.png"><img src="img/fb.png"><span>&nbsp100</span>
+			<img src="img/6.png"><img src="img/6.png"><img src="img/6.png"><span>&nbsp300</span>
 		</div>
 		<div style="clear:left">
-			<img src="img/wad.png"><img src="img/wad.png"><img src="img/wad.png"><span>&nbsp20</span>
+			<img src="img/5.png"><img src="img/5.png"><img src="img/5.png"><span>&nbsp500</span>
 		</div>
-	</div>
-	<div class="columnas">
-		<div style="clear:left">
-			<img src="img/in.png"><img src="img/in.png"><img src="img/in.png"><span>&nbsp10/span>
-	</div>
-	<div style="clear:left">
-		<img src="img/twitch.png"><img src="img/twitch.png"><img src="img/twitch.png"><span>&nbsp5</span>
-	</div>
-	<div style="clear:left">
-		<img src="img/snap.png"><img src="img/snap.png"><img src="img/snap.png"><span>&nbsp3/span>
-	</div>
-	<div style="clear:left">
-		<img src="img/tweet.png"><img src="img/tweet.png"><img src="img/tweet.png"><span>&nbsp2</span>
-	</div>
-	<div style="clear:left">
-		<img src="img/pint.png"><img src="img/pint.png"><img src="img/pint.png"><span>&nbsp1</span>
-	</div>
-</div>
-<div class="columnas" id="wild">
-	<div>
-		<img src="img/snap.png"><span>WILD</span>
+		
 	</div>
 </div>
 </section><br><br>
 </div>
 <script type="text/javascript">
-document.getElementById("spin").addEventListener("click", girar);
-
-cosnt arrayPremios = [1,2,3,5,10,20,100,300,500,1000];
-document.getElementById("win").value = 0;
-
-function girar() {
-	var saldo = parseInt(document.getElementById("amount").value);
-	var bet = parseInt(document.getElementById("bet").value);
-	var win = parseInt(document.getElementById("win").value);
-	var premio = 0;
-	if(saldo>=bet) {
-		document.getElementById("amount").value = saldo - bet;
-
-	var arrayFi
-}
-
-
-
-
-
-
-</script>
-
-
-</script>
-</body>
+	document.getElementById("spin").addEventListener("click",girar);
+	
+	const arrayPremios = [20,100,300,500];
+	document.getElementById("win").value = 0;
+	
+	function girar() {
+		var saldo = parseInt(document.getElementById("amount").value);
+		var bet = parseInt(document.getElementById("bet").value);
+		var win = parseInt(document.getElementById("win").value);
+		var premio = 0;
+		if(saldo>=bet) {
+			document.getElementById("amount").value = saldo - bet;
+	
+		var arrayFiguras = [0,0,0,0];
+		var n1 = Math.floor(Math.random() * 10);
+		arrayFiguras[n1]++;
+		var n2 = Math.floor(Math.random() * 10);
+		arrayFiguras[n2]++;
+		var n3 = Math.floor(Math.random() * 10);
+		arrayFiguras[n3]++;
+	
+		document.getElementById("reel1").src = "img/${n1}.png";
+		document.getElementById("reel2").src = "img/${n2}.png";
+		document.getElementById("reel3").src = "img/${n3}.png";
+	
+		for (a=0; a<arrayFiguras.length; a++) {
+			if(arrayFiguras[a]==3) {
+				premio = arrayPremios[a] * bet;
+				document.getElementById("win").value = win + premio;
+				break;
+			} else if (arrayFiguras[a]==2 && arrayFiguras[9]==1){
+				premio = arrayPremios[a] * bet;
+				document.getElementById("win").value = win + premio ; {
+				break;
+			} else if (arrayFiguras[a]==1 && arrayFiguras[9]==2){
+				premio = arrayPremios[a] * bet;
+				document.getElementById("win").value = win + premio ;
+				break;
+					}
+				}
+			}
+		}
+			</script>
+	</body>
 </html>
